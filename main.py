@@ -15,18 +15,12 @@ url = 'https://www.anekdot.ru/random/anekdot/'
 TOKEN = os.getenv('TOKEN')
 
 
-
-
-
-
 async def anekdot(message: types.Message):
     r = requests.get(url)
     soup = BeautifulSoup(r.text, 'html.parser')
     anekdot = soup.find('div', class_="text")
     joke = anekdot.get_text(separator='\n')
     await message.answer(joke)
-
-
 
 async def main():
     logging.basicConfig(level=logging.INFO,
