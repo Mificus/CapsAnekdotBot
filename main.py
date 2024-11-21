@@ -1,5 +1,7 @@
 import os
 import asyncio
+import logging
+
 from bs4 import BeautifulSoup
 import random
 import requests
